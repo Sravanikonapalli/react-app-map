@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/dashboard.css';
 
+const dummyData = [
+    { id: 1, title: "Card 1", description: "Description for Bangalore.", location: "Bangalore" },
+    { id: 2, title: "Card 2", description: "Description for Hyderabad.", location: "Hyderabad" },
+    { id: 3, title: "Card 3", description: "Description for Mumbai.", location: "Mumbai" },
+    { id: 4, title: "Card 4", description: "Description for Chennai.", location: "Chennai" },
+    { id: 5, title: "Card 5", description: "Description for Maharashtra.", location: "Maharashtra" },
+];
+
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
@@ -9,30 +17,18 @@ class Dashboard extends React.Component {
             cards: [],
             error: null,
             loading: true,
-            isLoggedIn: !!localStorage.getItem("token"), 
+            isLoggedIn: !!localStorage.getItem("token"),
         };
     }
 
     componentDidMount() {
         if (this.state.isLoggedIn) {
-            setTimeout(() => {
-                const dummyData = {
-                    cards: [
-                        { id: 1, title: "Card 1", description: "Description for Bangalore.", location: "Bangalore" },
-                        { id: 2, title: "Card 2", description: "Description for Hyderabad.", location: "Hyderabad" },
-                        { id: 3, title: "Card 3", description: "Description for Mumbai.", location: "Mumbai" },
-                        { id: 4, title: "Card 4", description: "Description for Chennai.", location: "Chennai" },
-                        { id: 5, title: "Card 5", description: "Description for Maharashtra.", location: "Maharashtra" },
-                    ],
-                };
-
-                this.setState({
-                    cards: dummyData.cards,
-                    loading: false,
-                });
-            }, 1000);
+            this.setState({
+                cards: dummyData,
+                loading: false,
+            });
         } else {
-            this.setState({ loading: false }); // Set loading to false if not logged in
+            this.setState({ loading: false });
         }
     }
 
@@ -46,7 +42,7 @@ class Dashboard extends React.Component {
         if (!isLoggedIn) {
             return (
                 <div className="dashboard-container">
-                    <p className='dashboard-error'>USER NOT LOGGED IN</p>
+                    <p className="dashboard-error">USER NOT LOGGED IN</p>
                     <p className="dashboard-error">Please log in to view the dashboard.</p>
                 </div>
             );
