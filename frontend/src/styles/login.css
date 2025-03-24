@@ -1,0 +1,100 @@
+.login-container {
+    background-image: url('https://tse3.mm.bing.net/th?id=OIP.fOATroVLcAPZ7ydOsLN3mAHaEv&pid=Api');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Glassmorphism effect for a modern look */
+.login-form-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+    color: white;
+}
+
+.login-form-container:hover {
+    transform: scale(1.03);
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-field:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.form-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.form-btn:hover {
+    background-color: #0077b6;
+}
+
+.error-text {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+p {
+    margin-top: 12px;
+}
+
+a {
+    color: #caf0f8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #90e0ef;
+}
+
+@media (max-width: 400px) {
+    .login-form-container {
+        width: 100%;
+        padding: 30px;
+    }
+}
