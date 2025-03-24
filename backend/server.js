@@ -86,29 +86,3 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-// Dashboard API (Protected)
-app.get("/dashboard", authenticateToken, async (req, res) => {
-    db.all("SELECT * FROM dashboard", [], (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({
-            cards: rows.map((row) => ({
-                ...row,
-                location: [row.longitude, row.latitude],
-            })),
-        });
-    });
-});
-
-app.get("/map/:location", authenticateToken, async (req, res) => {
-    const location = req.params.location.split(',');
-    if (location.length !== 2) {
-        return res.status(400).json({ error: "Invalid location format" });
-    }
-    const [lat, lng] = location.map(parseFloat);
-    if (isNaN(lat) || isNaN(lng)) {
-        return res.status(400).json({ error: "Invalid location values" });
-    }
-    res.json({ center: [lat, lng], zoom: 13 });
-});
-
-
